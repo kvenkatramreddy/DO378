@@ -1,6 +1,7 @@
 package org.acme.conference.session;
 
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,10 +13,10 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class SessionStore {
 
-    @ConfigProperty(name = "session-integration")
+    @ConfigProperty(name = "features.session-integration")
     private boolean sessionIntegration;
 
-    @Inject
+    @RestClient
     private SpeakerService speakerService;
 
 
